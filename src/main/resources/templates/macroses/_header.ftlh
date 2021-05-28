@@ -13,19 +13,19 @@
             </div>
         <div class="navbar align-items-end" id="navbarScroll">
             <ul class="navbar-nav mr-auto my-2 navbar-nav-scroll" style="max-height: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link" href="<@spring.url'/profile'/>">Profile</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                         Games
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li class="nav-item">
-                            <a class="nav-link" href="<@spring.url'/profile'/>">Profile</a>
-                        </li>
                         <#list genres as genre>
                             <li><a class="dropdown-item" href="<@spring.url'/games/${genre.name}'/>" data-link="genre">${genre.name}</a></li>
                         </#list>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<@spring.url'/genre-'/>">All</a>
+                        <a class="dropdown-item" href="<@spring.url'/genre'/>">All</a>
                     </ul>
                 </li>
                 <li class="nav-item">
