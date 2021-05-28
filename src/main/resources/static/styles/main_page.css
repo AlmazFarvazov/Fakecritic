@@ -1,3 +1,7 @@
 .nav{
     height: 3em;
 }
+
+#search-input{
+    width: 35em;
+}

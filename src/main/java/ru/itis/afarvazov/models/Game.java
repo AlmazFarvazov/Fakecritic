@@ -34,12 +34,11 @@ public class Game {
     @JoinColumn(name = "logo")
     private Media logo;
 
-    @OneToMany
-    @JoinColumn(name = "screen_id")
+    @OneToMany(mappedBy = "mediaOfTheGame")
     private List<Media> screens;
 
     @ManyToOne
-    @JoinColumn(name = "corproration_id")
+    @JoinColumn(name = "corporation_id")
     private Corporation developer;
 
 }

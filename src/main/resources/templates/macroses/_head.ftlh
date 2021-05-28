@@ -11,8 +11,9 @@
         <title>Document</title>
         <link rel="stylesheet" type="text/css" href="<@spring.url'/static/styles/font-awesome.min.css'/>">
         <link rel="stylesheet" type="text/css" href="<@spring.url'/static/styles/bootstrap.min.css'/>"/>
+        <link rel="stylesheet" type="text/css" href="<@spring.url'/static/styles/main_page.css'/>"/>
 
-        <script type="text/javascript" src="<@spring.url'/static/scripts/popper.min.js'/>"></script>
+        <script type="text/javascript" src="<@spring.url'/static/scripts/popper.min.js'/>"/></script>
         <script type="text/javascript" src="<@spring.url'/static/scripts/jquery-3.5.1.min.js'/>"></script>
         <script type="text/javascript" src="<@spring.url'/static/scripts/bootstrap.bundle.min.js'/>"></script>
         <script type="text/javascript" src="<@spring.url'/static/scripts/bootstrap.min.js'/>"></script>
