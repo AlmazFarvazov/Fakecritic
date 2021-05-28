@@ -2,6 +2,7 @@ package ru.itis.afarvazov.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.itis.afarvazov.exceptions.NoSuchGameException;
 import ru.itis.afarvazov.models.Corporation;
 import ru.itis.afarvazov.models.Game;
 import ru.itis.afarvazov.models.Genre;
@@ -21,7 +22,7 @@ public class GamesServiceImpl implements GamesService {
 
     @Override
     public Game getGameByTitle(String title) {
-        return gamesRepository.findGameByTitle(title).orElseThrow(IllegalAccessError::new);
+        return gamesRepository.findGameByTitle(title).orElseThrow(NoSuchGameException::new);
     }
 
     @Override
@@ -37,5 +38,15 @@ public class GamesServiceImpl implements GamesService {
     @Override
     public List<Game> getAllByDeveloper(Corporation corporation) {
         return gamesRepository.findAllByDeveloperOrderByTitle(corporation);
+    }
+
+    @Override
+    public List<Game> getGamesWithPages(int page, int size) {
+        return gamesRepository.findAllByPage(size, page * size);
+    }
+
+    @Override
+    public List<Game> getGamesWithPagesForGenre(String genre, int page, int size) {
+        return gamesRepository.findAllByPageAndGenre(genre, size, page * size);
     }
 }

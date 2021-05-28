@@ -16,7 +16,7 @@
                     <div class="card-title mb-4">
                         <div class="d-flex justify-content-start">
                             <div class="image-container">
-                                <img src="'<@spring.url'${game.logo.source}'/>'" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail"  alt="logo"/>
+                                <img src="<@spring.url'${game.logo.source}'/>" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail"  alt="logo"/>
                             </div>
                             <div class="gameData ml-3">
                                 <h2 class="d-block" style="font-size: 1.5rem; font-weight: bold">${game.title}</h2>

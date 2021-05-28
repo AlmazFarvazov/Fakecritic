@@ -18,11 +18,14 @@
                         Games
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<@spring.url'/profile'/>">Profile</a>
+                        </li>
                         <#list genres as genre>
-                            <li><a class="dropdown-item" href="<@spring.url'/games/${genre.name}'/>">${genre.name}</a></li>
+                            <li><a class="dropdown-item" href="<@spring.url'/games/${genre.name}'/>" data-link="genre">${genre.name}</a></li>
                         </#list>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<@spring.url'/games'/>">All</a>
+                        <a class="dropdown-item" href="<@spring.url'/genre-'/>">All</a>
                     </ul>
                 </li>
                 <li class="nav-item">

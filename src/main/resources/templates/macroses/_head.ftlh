@@ -17,6 +17,7 @@
         <script type="text/javascript" src="<@spring.url'/static/scripts/jquery-3.5.1.min.js'/>"></script>
         <script type="text/javascript" src="<@spring.url'/static/scripts/bootstrap.bundle.min.js'/>"></script>
         <script type="text/javascript" src="<@spring.url'/static/scripts/bootstrap.min.js'/>"></script>
+        <script type="text/javascript" src="<@spring.url'/static/scripts/script.js'/>"></script>
     </head>
     <body>
 </#macro>

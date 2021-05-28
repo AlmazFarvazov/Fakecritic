@@ -1,44 +1,53 @@
 package ru.itis.afarvazov.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 import ru.itis.afarvazov.dto.GameDto;
-import ru.itis.afarvazov.dto.GenreDto;
 import ru.itis.afarvazov.services.GamesService;
 import ru.itis.afarvazov.services.GenresService;
 
 import javax.annotation.security.PermitAll;
+import java.util.List;
 
 
-@Controller
+@RestController
 public class GameRestController {
 
-    private final GenresService genresService;
     private final GamesService gamesService;
+    private final GenresService genresService;
 
     @Autowired
-    public GameRestController(GenresService genresService, GamesService gamesService) {
-        this.genresService = genresService;
+    public GameRestController(GamesService gamesService, GenresService genresService) {
         this.gamesService = gamesService;
+        this.genresService = genresService;
+    }
+
+    @PermitAll
+    @GetMapping(value = "/games/{page}/{size}")
+    public ResponseEntity<List<GameDto>> getGameForPage(@PathVariable int page, @PathVariable int size) {
+        return ResponseEntity.ok(GameDto.from(gamesService.getGamesWithPages(page, size)));
     }
 
     @PermitAll
     @GetMapping(value = "/games")
-    public String getGamePage(Model model) {
-        model.addAttribute("genres", GenreDto.from(genresService.getAllGenres()));
-        model.addAttribute("games", GameDto.from(gamesService.getAll()));
-        return "games_page";
+    public ResponseEntity<List<GameDto>> getGames() {
+        return ResponseEntity.ok(GameDto.from(gamesService.getAll()));
+    }
+
+    @PermitAll
+    @GetMapping(value = "/games/{genre}/{page}/{size}")
+    public ResponseEntity<List<GameDto>> getGameForPageByGenre(@PathVariable String genre,
+                                                             @PathVariable int page, @PathVariable int size) {
+        return ResponseEntity.ok(GameDto.from(gamesService.getGamesWithPagesForGenre(genre, page, size)));
     }
 
     @PermitAll
     @GetMapping(value = "/games/{genre}")
-    public String getGamePageForGenre(Model model, @PathVariable String genre) {
-        model.addAttribute("genres", GenreDto.from(genresService.getAllGenres()));
-        model.addAttribute("games", GameDto.from(gamesService.getAllByGenre(genresService.getByName(genre))));
-        return "games_page";
+    public ResponseEntity<List<GameDto>> getGamesByGenre(@PathVariable String genre) {
+        return ResponseEntity.ok(GameDto.from(gamesService.getAllByGenre(genresService.getByName(genre))));
     }
 
 }

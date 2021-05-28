@@ -1,9 +1,6 @@
 package ru.itis.afarvazov.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -21,6 +18,7 @@ public class Media {
 
     @ManyToOne
     @JoinColumn(name = "game_id")
+    @ToString.Exclude
     private Game mediaOfTheGame;
 
 }

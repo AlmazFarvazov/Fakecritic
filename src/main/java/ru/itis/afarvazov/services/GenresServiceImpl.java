@@ -2,6 +2,7 @@ package ru.itis.afarvazov.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ru.itis.afarvazov.exceptions.NoSuchGenreException;
 import ru.itis.afarvazov.models.Genre;
 import ru.itis.afarvazov.repositories.GenresRepository;
 
@@ -19,7 +20,7 @@ public class GenresServiceImpl implements GenresService {
 
     @Override
     public Genre getByName(String genreName) {
-        return genresRepository.findGenreByName(genreName).orElseThrow(IllegalArgumentException::new);
+        return genresRepository.findGenreByName(genreName).orElseThrow(NoSuchGenreException::new);
     }
 
     @Override

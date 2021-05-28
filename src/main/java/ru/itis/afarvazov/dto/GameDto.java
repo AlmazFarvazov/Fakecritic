@@ -1,9 +1,6 @@
 package ru.itis.afarvazov.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ru.itis.afarvazov.models.Corporation;
 import ru.itis.afarvazov.models.Game;
 import ru.itis.afarvazov.models.Genre;

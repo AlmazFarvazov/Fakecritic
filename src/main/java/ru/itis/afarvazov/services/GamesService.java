@@ -12,5 +12,7 @@ public interface GamesService {
     List<Game> getAllByDeveloper(Corporation corporation);
     List<Game> getAll();
     Game getGameByTitle(String title);
+    List<Game> getGamesWithPages(int page, int size);
+    List<Game> getGamesWithPagesForGenre(String genre, int page, int size);
 
 }
